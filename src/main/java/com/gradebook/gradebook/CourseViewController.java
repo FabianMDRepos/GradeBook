@@ -35,7 +35,9 @@ public class CourseViewController extends  CourseViewListManager{
                 courseViewListManager.openAssignmentViewForSelectedCourse(courseList);
             }
         }
-
+        protected Course getCurrentCourse() {
+            return courseList.getSelectionModel().getSelectedItem();
+        }
         private boolean CourseIsSelected() {
             return !courseList.getSelectionModel().isEmpty();
         }

@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class assignmentViewController extends Controller{
+public class AssignmentViewController extends Controller{
 
     @FXML private TableView<Assignment> tableView;
     @FXML private TableColumn<Assignment,String> Type;

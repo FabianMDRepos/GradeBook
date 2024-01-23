@@ -9,46 +9,47 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="737.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gradebook.gradebook.assignmentViewController">
-   <children>
-      <AnchorPane prefHeight="645.0" prefWidth="737.0">
-         <children>
-            <Button fx:id="add" layoutX="661.0" layoutY="58.0" mnemonicParsing="false" onAction="#addAssignment" prefHeight="36.0" prefWidth="62.0" text="Add" textFill="#1bd13f">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <TableView fx:id="tableView" layoutX="31.0" layoutY="58.0" prefHeight="553.0" prefWidth="587.0">
-              <columns>
-                <TableColumn fx:id="Type" prefWidth="142.0" text="Type" />
-                <TableColumn fx:id="Number" prefWidth="71.0" text="Number" />
-                  <TableColumn fx:id="Received" prefWidth="74.0" text="Received" />
-                  <TableColumn fx:id="Possible" prefWidth="69.0" text="Possible" />
-                  <TableColumn fx:id="Weight" prefWidth="75.0" text="Weight" />
-              </columns>
-            </TableView>
-            <Button fx:id="edit" layoutX="661.0" layoutY="113.0" mnemonicParsing="false" onAction="#editAssignment" prefHeight="36.0" prefWidth="62.0" text="Edit">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button fx:id="delete" layoutX="661.0" layoutY="163.0" mnemonicParsing="false" onAction="#deleteAssignment" prefHeight="36.0" prefWidth="62.0" text="Delete" textFill="#ab2222">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Label layoutX="31.0" layoutY="22.0" prefHeight="27.0" prefWidth="173.0" text="Assignment View">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <TextField fx:id="Grade" editable="false" layoutX="619.0" layoutY="14.0" prefHeight="26.0" prefWidth="104.0" />
-            <Label layoutX="522.0" layoutY="18.0" prefHeight="19.0" prefWidth="96.0" text="Course Grade:">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-   </children>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0"
+      prefWidth="737.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.gradebook.gradebook.AssignmentViewController">
+   <AnchorPane prefHeight="645.0" prefWidth="737.0">
+      <Button fx:id="add" layoutX="661.0" layoutY="58.0" mnemonicParsing="false" onAction="#addAssignment"
+              prefHeight="36.0" prefWidth="62.0" text="Add" textFill="#1bd13f">
+         <font>
+            <Font name="System Bold" size="12.0"/>
+         </font>
+      </Button>
+      <TableView fx:id="tableView" layoutX="31.0" layoutY="58.0" prefHeight="553.0" prefWidth="587.0">
+         <columns>
+            <TableColumn fx:id="Type" prefWidth="142.0" text="Type"/>
+            <TableColumn fx:id="Number" prefWidth="71.0" text="Number"/>
+            <TableColumn fx:id="Received" prefWidth="74.0" text="Received"/>
+            <TableColumn fx:id="Possible" prefWidth="69.0" text="Possible"/>
+            <TableColumn fx:id="Weight" prefWidth="75.0" text="Weight"/>
+         </columns>
+      </TableView>
+      <Button fx:id="edit" layoutX="661.0" layoutY="113.0" mnemonicParsing="false" onAction="#editAssignment"
+              prefHeight="36.0" prefWidth="62.0" text="Edit">
+         <font>
+            <Font name="System Bold" size="12.0"/>
+         </font>
+      </Button>
+      <Button fx:id="delete" layoutX="661.0" layoutY="163.0" mnemonicParsing="false" onAction="#deleteAssignment"
+              prefHeight="36.0" prefWidth="62.0" text="Delete" textFill="#ab2222">
+         <font>
+            <Font name="System Bold" size="12.0"/>
+         </font>
+      </Button>
+      <Label layoutX="31.0" layoutY="22.0" prefHeight="27.0" prefWidth="173.0" text="Assignment View">
+         <font>
+            <Font name="System Bold" size="18.0"/>
+         </font>
+      </Label>
+      <TextField fx:id="Grade" editable="false" layoutX="619.0" layoutY="14.0" prefHeight="26.0" prefWidth="104.0"/>
+      <Label layoutX="522.0" layoutY="18.0" prefHeight="19.0" prefWidth="96.0" text="Course Grade:">
+         <font>
+            <Font name="System Bold" size="13.0"/>
+         </font>
+      </Label>
+   </AnchorPane>
 </VBox>

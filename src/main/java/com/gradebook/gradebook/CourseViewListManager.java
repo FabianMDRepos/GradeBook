@@ -58,7 +58,7 @@ public class CourseViewListManager {
         Course selectedCourse = courseList.getSelectionModel().getSelectedItem();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("assignmentView.fxml"));
         Parent assignmentViewRoot = loader.load();
-        assignmentViewController controller = loader.getController();
+        AssignmentViewController controller = loader.getController();
         controller.setCurrentCourse(selectedCourse);
 
         Scene currentScene = courseList.getScene();
@@ -138,6 +138,10 @@ public class CourseViewListManager {
                 }
             }
         });
+    }
+
+    private void saveCourseListToFile(ListView<Course> courseList) {
+
     }
 
 }

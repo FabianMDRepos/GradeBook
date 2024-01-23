@@ -155,7 +155,7 @@ public class Controller implements Initializable {
                     try {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("assignmentView.fxml"));
                         Parent root = loader.load();
-                        assignmentViewController childController = loader.getController();
+                        AssignmentViewController childController = loader.getController();
 
                         childController.setCurrentCourse(selectedCourse);
                         childController.initialize();
