@@ -46,7 +46,6 @@ public class CourseViewListManager {
     }
 
     protected void deleteSelectedCourse(ListView<Courses> courseList) {
-        Courses course = courseList.getItems().get(courseList.getSelectionModel().getSelectedIndex());
         updateCourseListDisplay(courseList);
         int index = courseList.getSelectionModel().getSelectedIndex();
         courseList.getItems().remove(index);
@@ -54,27 +53,34 @@ public class CourseViewListManager {
         courseList.refresh();
     }
 
-    protected void openAssignmentViewForSelectedCourse(ListView<Courses> courseList) throws Exception{
-
-        if (courseList.getSelectionModel().getSelectedItem() == null) {
-            return;
-        }
+    protected void openAssignmentViewForSelectedCourse(ListView<Courses> courseList) throws Exception {
 
         Courses selectedCourse = courseList.getSelectionModel().getSelectedItem();
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("assignmentView.fxml"));
         Parent assignmentViewRoot = loader.load();
-
         assignmentViewController controller = loader.getController();
         controller.setCurrentCourse(selectedCourse);
 
         Scene currentScene = courseList.getScene();
         Stage currentStage = (Stage) currentScene.getWindow();
 
-        Scene assignmentScene = new Scene(assignmentViewRoot);
-        currentStage.setScene(assignmentScene);
+        // Store the original scene
+        Scene courseViewScene = currentStage.getScene();
 
+        // Set the new scene
+        Scene assignmentScene = new Scene(assignmentViewRoot,737, 642);
+        currentStage.setScene(assignmentScene);
         currentStage.setTitle("Assignments for " + selectedCourse.getCourseTitle());
+
+        // Handle the window close request
+        currentStage.setOnCloseRequest(event -> {
+            if (currentStage.getScene().equals(courseViewScene)) {
+                return;
+            }
+            // Set the original scene back when the window is closed
+            event.consume();
+            currentStage.setScene(courseViewScene);
+        });
     }
     private editCourseController setupEditController(FXMLLoader loader, Courses course) {
         editCourseController controller = loader.getController();

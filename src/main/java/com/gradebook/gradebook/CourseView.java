@@ -7,9 +7,10 @@ import javafx.stage.Stage;
 
 public class CourseView {
     public CourseView(Stage courseViewStage) throws Exception{
-        FXMLLoader courseViewLoader = new FXMLLoader(getClass().getResource("CourseView.fxml"));
+        FXMLLoader courseViewLoader = new FXMLLoader(getClass().getResource("CourseViewTest.fxml"));
         Parent root = courseViewLoader.load();
-        Controller controller = courseViewLoader.getController();
+        //Controller controller = courseViewLoader.getController();
+        CourseViewController courseViewController = courseViewLoader.getController();
 
         courseViewStage.setTitle("Grade Book");
         courseViewStage.setResizable(false);

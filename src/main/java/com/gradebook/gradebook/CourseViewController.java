@@ -31,7 +31,7 @@ public class CourseViewController extends  CourseViewListManager{
         }
         @FXML
         public void handleCourseDoubleClick(MouseEvent event) throws Exception {
-            if (event.getClickCount() == 2) {
+            if (event.getClickCount() == 2 && courseList.getSelectionModel().getSelectedItem() != null) {
                 courseViewListManager.openAssignmentViewForSelectedCourse(courseList);
             }
         }
