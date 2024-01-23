@@ -23,12 +23,12 @@ public class Controller implements Initializable {
     @FXML private Button Add;
     @FXML private Button Edit;
     @FXML public Button Delete;
-    @FXML private ListView<Courses> CourseList;
+    @FXML private ListView<Course> CourseList;
     @FXML private Set<String> stringSet;
 
-    protected Courses selectedCourse;
+    protected Course selectedCourse;
 
-    @FXML public void addToList(Courses course) {
+    @FXML public void addToList(Course course) {
         CourseList.getItems().add(course);
         updateText(course,false);
     }
@@ -36,7 +36,7 @@ public class Controller implements Initializable {
 
     @FXML public void deleteButton(ActionEvent event){
         if (!CourseList.getSelectionModel().isEmpty() ) {
-            Courses course = CourseList.getItems().get(CourseList.getSelectionModel().getSelectedIndex());
+            Course course = CourseList.getItems().get(CourseList.getSelectionModel().getSelectedIndex());
             updateText(course, true);
             int index = CourseList.getSelectionModel().getSelectedIndex();
             CourseList.getItems().remove(index);
@@ -49,7 +49,7 @@ public class Controller implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("addCourse.fxml"));
             Parent root = loader.load();
-            addCourseController childController = loader.getController();
+            CourseAddController childController = loader.getController();
 
             childController.setYearComboBox();
             childController.setSemesterComboBox();
@@ -79,12 +79,12 @@ public class Controller implements Initializable {
     @FXML public void editButton(ActionEvent event){
         if (!CourseList.getSelectionModel().isEmpty() ) {
 
-            Courses course = CourseList.getItems().get(CourseList.getSelectionModel().getSelectedIndex());
+            Course course = CourseList.getItems().get(CourseList.getSelectionModel().getSelectedIndex());
 
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("editCourse.fxml"));
                 Parent root = loader.load();
-                editCourseController childController = loader.getController();
+                CourseEditController childController = loader.getController();
 
                 String currentSemester = course.getSemester();
                 int currentYear = course.getYear();
@@ -124,14 +124,14 @@ public class Controller implements Initializable {
     }
 
     private void createCourse(String title, String semester, int year)  {
-        Courses course = new Courses(title,semester,year);
+        Course course = new Course(title,semester,year);
         addToList(course);
     }
 
-    @FXML public void updateText(Courses course, boolean bool){
-        CourseList.setCellFactory(lv -> new ListCell<Courses>() {
+    @FXML public void updateText(Course course, boolean bool){
+        CourseList.setCellFactory(lv -> new ListCell<Course>() {
             @Override
-            public void updateItem(Courses course, boolean empty) {
+            public void updateItem(Course course, boolean empty) {
                 super.updateItem(course, empty);
                 if (empty) {
                     setText(null);
@@ -193,8 +193,8 @@ public class Controller implements Initializable {
                     }
                 }
                 CourseList.setCellFactory(lv -> {
-                            ListCell<Courses> cell = new ListCell<Courses>() {
-                            protected void updateItem (Courses course,boolean empty){
+                            ListCell<Course> cell = new ListCell<Course>() {
+                            protected void updateItem (Course course, boolean empty){
                                 super.updateItem(course, empty);
                                 if (empty) {
                                     setText(null);
@@ -217,7 +217,7 @@ public class Controller implements Initializable {
         });
     }
 
-    public Courses getSelectedCourse() { return selectedCourse;}
+    public Course getSelectedCourse() { return selectedCourse;}
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

@@ -27,7 +27,7 @@ public class assignmentViewController extends Controller{
     @FXML private Button edit;
     @FXML private Button delete;
 
-    Courses currentCourse;
+    Course currentCourse;
     ObservableList<Assignment> newData = FXCollections.observableArrayList();
     ObservableList<Assignment> data = FXCollections.observableArrayList();
 
@@ -60,7 +60,7 @@ public class assignmentViewController extends Controller{
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("addAssignment.fxml"));
             Parent root = loader.load();
-            addAssignmentController childController = loader.getController();
+            AssignmentAddController childController = loader.getController();
 
             childController.setTypeComboBox();
             root.getChildrenUnmodifiable();
@@ -114,7 +114,7 @@ public class assignmentViewController extends Controller{
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("editAssignment.fxml"));
                 Parent root = loader.load();
-                editAssignmentController childController = loader.getController();
+                AssignmentEditController childController = loader.getController();
 
                 childController.setTypeComboBox();
                 root.getChildrenUnmodifiable();
@@ -193,7 +193,7 @@ public class assignmentViewController extends Controller{
         Grade.setText(stringGrade + "%");
 
     }
-    public void setCurrentCourse(Courses selectedCourse) {currentCourse = selectedCourse; }
+    public void setCurrentCourse(Course selectedCourse) {currentCourse = selectedCourse; }
     public void initialize(){
         Grade.setEditable(false);
         Grade.setMouseTransparent(true);

@@ -6,7 +6,7 @@ import javafx.collections.ObservableList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Courses {
+public class Course {
 
     private String course_title;
     private String semester;
@@ -29,7 +29,7 @@ public class Courses {
     HashMap<Integer, Assignment> Lab = new HashMap<Integer, Assignment>();
 
     // /////////////////////Class Constructor 
-    public Courses(String title,String Semester,int Year) {
+    public Course(String title, String Semester, int Year) {
         course_title = title; 
         semester = Semester;
         year = Year; 

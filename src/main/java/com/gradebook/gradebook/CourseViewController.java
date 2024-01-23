@@ -9,7 +9,7 @@ public class CourseViewController extends  CourseViewListManager{
         @FXML private Button addButton;
         @FXML private Button editButton;
         @FXML private Button deleteButton;
-        @FXML private ListView<Courses> courseList;
+        @FXML private ListView<Course> courseList;
 
         private CourseViewListManager courseViewListManager = CourseViewListManager.getInstance();
 
@@ -19,24 +19,24 @@ public class CourseViewController extends  CourseViewListManager{
         }
         @FXML
         public void handleEditButtonAction() throws Exception{
-            if (isCourseSelected()) {
+            if (CourseIsSelected()) {
                 courseViewListManager.openEditCourseWindow(courseList);
             }
         }
         @FXML
         public void handleDeleteButtonAction() {
-            if (isCourseSelected()) {
+            if (CourseIsSelected()) {
                 courseViewListManager.deleteSelectedCourse(courseList);
             }
         }
         @FXML
         public void handleCourseDoubleClick(MouseEvent event) throws Exception {
-            if (event.getClickCount() == 2 && courseList.getSelectionModel().getSelectedItem() != null) {
+            if (2 == event.getClickCount() && CourseIsSelected()) {
                 courseViewListManager.openAssignmentViewForSelectedCourse(courseList);
             }
         }
 
-        private boolean isCourseSelected() {
+        private boolean CourseIsSelected() {
             return !courseList.getSelectionModel().isEmpty();
         }
 }

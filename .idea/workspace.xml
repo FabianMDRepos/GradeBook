@@ -5,13 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22d764d0-d92e-47a4-abce-a368cca21987" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/gradebook/gradebook/CourseViewTest.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/CourseView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/CourseView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/CourseViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/CourseViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/CourseViewListManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/CourseViewListManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/GradeBookInputValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/GradeBookInputValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/gradebook/gradebook/assignmentView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/gradebook/gradebook/assignmentView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/Courses.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/addAssignmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/AssignmentAddController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/addCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/CourseAddController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/assignmentViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/assignmentViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/editAssignmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/AssignmentEditController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/editCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/CourseEditController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/gradebook/gradebook/addAssignment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/gradebook/gradebook/addAssignment.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/gradebook/gradebook/addCourse.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/gradebook/gradebook/addCourse.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/gradebook/gradebook/editAssignment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/gradebook/gradebook/editAssignment.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/gradebook/gradebook/editCourse.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/gradebook/gradebook/editCourse.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
