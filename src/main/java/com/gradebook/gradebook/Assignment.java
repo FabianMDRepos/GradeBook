@@ -4,6 +4,8 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
+import java.util.Objects;
+
 public class Assignment{
 
     private SimpleStringProperty assignmentTitle;
@@ -16,7 +18,7 @@ public class Assignment{
     private double weightedGrade;
 
     ///////////////////// Class Constructors 
-    // Constructors should check to see if an assignment has already been made with that title or number. 
+    // Should check to see if an assignment has already been made with that title or number.
     public Assignment(String title, String type, int assignmentNUmber, double pointsPossible, double pointsReceived, double assignmentWeight) {
         this.assignmentTitle = new SimpleStringProperty(title);
         this.assignmentType = new SimpleStringProperty(type);
@@ -79,5 +81,19 @@ public class Assignment{
     }
     ///////////////////////////////////////////////////////////////
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Assignment that = (Assignment) obj;
+        return assignmentNumber.get() == that.assignmentNumber.get() &&
+                Objects.equals(assignmentType.get(), that.assignmentType.get()) &&
+                Objects.equals(assignmentTitle.get(), that.assignmentTitle.get());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(assignmentType.get(), assignmentTitle.get(), assignmentNumber.get());
+    }
 
 }

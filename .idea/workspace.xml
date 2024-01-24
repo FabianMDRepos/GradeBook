@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22d764d0-d92e-47a4-abce-a368cca21987" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/AssignmentViewListManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/Courses.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/Assignment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/AssignmentViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/AssignmentViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/Course.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/CourseViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/CourseViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/CourseViewListManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/CourseViewListManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/gradebook/gradebook/assignmentView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/gradebook/gradebook/assignmentView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,18 +59,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/mulle/OneDrive/Documents/GitHub/GradeBook/src/main/resources/com/gradebook/gradebook",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.17189315",
-    "settings.editor.selected.configurable": "AndroidSdkUpdater"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mulle/OneDrive/Documents/GitHub/GradeBook/src/main/resources/com/gradebook/gradebook&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.17189315&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\mulle\OneDrive\Documents\GitHub\GradeBook\src\main\resources\com\gradebook\gradebook" />
@@ -112,17 +115,6 @@
       <updated>1705454567402</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/CourseViewController.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>

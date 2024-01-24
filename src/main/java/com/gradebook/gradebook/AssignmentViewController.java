@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class AssignmentViewController extends Controller{
+public class AssignmentViewController extends CourseViewController{
 
     @FXML private TableView<Assignment> tableView;
     @FXML private TableColumn<Assignment,String> Type;
@@ -27,15 +27,11 @@ public class AssignmentViewController extends Controller{
     @FXML private Button edit;
     @FXML private Button delete;
 
-    Course currentCourse;
-    ObservableList<Assignment> newData = FXCollections.observableArrayList();
-    ObservableList<Assignment> data = FXCollections.observableArrayList();
+    private Courses currentCourse;
 
-    // Add function that checks for existing observable list in the course and
-    // populates if one already exists
     public void addExistingAssignments(ObservableList<Assignment> courseAssignments) {
         if ( !courseAssignments.isEmpty() ) {
-            data.addAll(courseAssignments);
+            currentCourse.getAssignmentsList().addAll(courseAssignments);
             addAssignmentToTable();
         }
     }
@@ -51,11 +47,11 @@ public class AssignmentViewController extends Controller{
         Possible.setCellValueFactory(new PropertyValueFactory<Assignment, Double>("possiblePoints"));
         Weight.setCellValueFactory(new PropertyValueFactory<Assignment, Double>("weight"));
 
-        tableView.setItems(data);
+        //tableView.setItems(assignmentObservableList);
+        tableView.setItems((currentCourse.getAssignmentsList()));
         tableView.refresh();
     }
 
-    
     @FXML public void addAssignment(ActionEvent event){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("addAssignment.fxml"));
@@ -92,14 +88,12 @@ public class AssignmentViewController extends Controller{
             e.printStackTrace();
         }
     }
-
+    // TODO Needs to remove assignment from the course assignmentList
     @FXML protected void deleteAssignment(){
         if (!tableView.getSelectionModel().isEmpty()) {
-            Assignment assignment = tableView.getItems().get(tableView.getSelectionModel().getSelectedIndex());
-            int index = tableView.getSelectionModel().getSelectedIndex();
+            Assignment assignmentToDelete = tableView.getSelectionModel().getSelectedItem();
+            currentCourse.removeAssignment(assignmentToDelete);
 
-            data.remove(index);
-            //tableView.getItems().remove(index);
             addAssignmentToTable();
             refreshCourseGrade();
             tableView.refresh();
@@ -154,7 +148,7 @@ public class AssignmentViewController extends Controller{
                     tableView.getItems().get(tableView.getSelectionModel().getSelectedIndex()).setPossiblePoints(possible);
 
                     // Update data in observable list
-                    data.set(index, assignment);
+                    currentCourse.getAssignmentsList().set(index, assignment);
                     refreshCourseGrade();
                     tableView.refresh();
                 }
@@ -168,24 +162,20 @@ public class AssignmentViewController extends Controller{
     }
 
     public void createAssignment(String title, String type, int number, double possible, double received, double weight){
-        Assignment assignment;
+        Assignment assignment = (received == 0.0)
+                ? new Assignment(title, type, number, possible, weight)
+                : new Assignment(title, type, number, possible, received, weight);
 
-        if (received == 0.0) {
-            assignment = new Assignment(title,type,number,possible,weight);
-        }else {
-            assignment = new Assignment(title,type,number,possible,received,weight);
+        if (!currentCourse.getAssignmentsList().contains(assignment)) {
+            currentCourse.addAssignment(assignment);
+            addAssignmentToTable();
+            refreshCourseGrade();
         }
-       //assignment.printAssignment();
-        data.add(assignment);
-        newData.add(assignment);
-        addAssignmentToTable();
-        currentCourse.setAssignmentObservableList(data);
-        refreshCourseGrade();
     }
 
-    public ObservableList<Assignment> getNewData() { return newData; }
-    public ObservableList<Assignment> getData() { return data; }
-    public void setNewData(ObservableList<Assignment> inputData) {newData = inputData;}
+
+    public ObservableList<Assignment> getAssignmentObservableList() { return currentCourse.getAssignmentsList(); }
+
     public void refreshCourseGrade(){
         double grade = currentCourse.getCourseGrade();
         grade = Math.round(grade * 100.0) / 100.0;
@@ -193,13 +183,18 @@ public class AssignmentViewController extends Controller{
         Grade.setText(stringGrade + "%");
 
     }
-    public void setCurrentCourse(Course selectedCourse) {currentCourse = selectedCourse; }
+    public void setCurrentCourse(Courses course) {
+        this.currentCourse = course;
+        addAssignmentToTable();
+    }
+    private void updateAssignmentView() {
+        tableView.setItems(currentCourse.getAssignmentsList());
+    }
     public void initialize(){
         Grade.setEditable(false);
         Grade.setMouseTransparent(true);
         Grade.setFocusTraversable(false);
         refreshCourseGrade();
-        //currentCourse = getSelectedCourse();
 
     }
 }

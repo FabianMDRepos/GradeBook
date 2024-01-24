@@ -9,7 +9,7 @@ public class CourseViewController extends  CourseViewListManager{
         @FXML private Button addButton;
         @FXML private Button editButton;
         @FXML private Button deleteButton;
-        @FXML private ListView<Course> courseList;
+        @FXML private ListView<Courses> courseList;
 
         private CourseViewListManager courseViewListManager = CourseViewListManager.getInstance();
 
@@ -35,7 +35,7 @@ public class CourseViewController extends  CourseViewListManager{
                 courseViewListManager.openAssignmentViewForSelectedCourse(courseList);
             }
         }
-        protected Course getCurrentCourse() {
+        protected Courses getCurrentCourse() {
             return courseList.getSelectionModel().getSelectedItem();
         }
         private boolean CourseIsSelected() {

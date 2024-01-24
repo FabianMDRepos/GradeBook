@@ -1,6 +1,7 @@
 package com.gradebook.gradebook;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +9,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class CourseViewListManager {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class CourseViewListManager implements Initializable {
 
     private static CourseViewListManager listManagerInstance;
     protected CourseViewListManager() {
@@ -18,7 +22,7 @@ public class CourseViewListManager {
                 new CourseViewListManager() : listManagerInstance;
     }
 
-    protected void openAddCourseWindow(ListView<Course> courseList) throws Exception {
+    protected void openAddCourseWindow(ListView<Courses> courseList) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("addCourse.fxml"));
         Parent root = loader.load();
         CourseAddController childController = loader.getController();
@@ -32,8 +36,8 @@ public class CourseViewListManager {
         processNewCourseData(childController, courseList);
     }
 
-    protected void openEditCourseWindow(ListView<Course> courseList) throws Exception{
-        Course selectedCourse = courseList.getSelectionModel().getSelectedItem();
+    protected void openEditCourseWindow(ListView<Courses> courseList) throws Exception{
+        Courses selectedCourse = courseList.getSelectionModel().getSelectedItem();
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("editCourse.fxml"));
         Parent root = loader.load();
@@ -45,7 +49,7 @@ public class CourseViewListManager {
         updateCourseIfEdited(childController, selectedCourse, courseList);
     }
 
-    protected void deleteSelectedCourse(ListView<Course> courseList) {
+    protected void deleteSelectedCourse(ListView<Courses> courseList) {
         updateCourseListDisplay(courseList);
         int index = courseList.getSelectionModel().getSelectedIndex();
         courseList.getItems().remove(index);
@@ -53,13 +57,14 @@ public class CourseViewListManager {
         courseList.refresh();
     }
 
-    protected void openAssignmentViewForSelectedCourse(ListView<Course> courseList) throws Exception {
+    protected void openAssignmentViewForSelectedCourse(ListView<Courses> courseList) throws Exception {
 
-        Course selectedCourse = courseList.getSelectionModel().getSelectedItem();
+        Courses selectedCourse = courseList.getSelectionModel().getSelectedItem();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("assignmentView.fxml"));
         Parent assignmentViewRoot = loader.load();
         AssignmentViewController controller = loader.getController();
         controller.setCurrentCourse(selectedCourse);
+        controller.refreshCourseGrade();
 
         Scene currentScene = courseList.getScene();
         Stage currentStage = (Stage) currentScene.getWindow();
@@ -82,14 +87,14 @@ public class CourseViewListManager {
             currentStage.setScene(courseViewScene);
         });
     }
-    private CourseEditController setupEditController(FXMLLoader loader, Course course) {
+    private CourseEditController setupEditController(FXMLLoader loader, Courses course) {
         CourseEditController controller = loader.getController();
         controller.setYearComboBox(course.getYear());
         controller.setSemesterComboBox(course.getSemester());
         controller.setTitle(course.getCourseTitle());
         return controller;
     }
-    private void updateCourseIfEdited(CourseEditController controller, Course course, ListView<Course> courseList) {
+    private void updateCourseIfEdited(CourseEditController controller, Courses course, ListView<Courses> courseList) {
         if (controller.isEdited()) {
             course.setYear(controller.getYear());
             course.setSemester(controller.getSemester());
@@ -97,11 +102,11 @@ public class CourseViewListManager {
             updateCourseListDisplay(courseList);
         }
     }
-    private Course createCourse(String title, String semester, int year)  {
-        return new Course(title,semester,year);
+    private Courses createCourse(String title, String semester, int year)  {
+        return new Courses(title,semester,year);
     }
     @FXML
-    private void addToList(Course course, ListView<Course> courseList) {
+    private void addToList(Courses course, ListView<Courses> courseList) {
         courseList.getItems().add(course);
         updateCourseListDisplay(courseList);
     }
@@ -112,7 +117,7 @@ public class CourseViewListManager {
         stage.setScene(new Scene(root, width, height));
         return stage;
     }
-    private void processNewCourseData(CourseAddController controller, ListView<Course> courseList) {
+    private void processNewCourseData(CourseAddController controller, ListView<Courses> courseList) {
         int year = controller.getYear();
         String semester = controller.getSemester();
         String title = controller.getTitle();
@@ -122,10 +127,10 @@ public class CourseViewListManager {
         }
     }
     @FXML
-    private void updateCourseListDisplay(ListView<Course> courseList){
-        courseList.setCellFactory(lv -> new ListCell<Course>() {
+    private void updateCourseListDisplay(ListView<Courses> courseList){
+        courseList.setCellFactory(lv -> new ListCell<Courses>() {
             @Override
-            public void updateItem(Course course, boolean empty) {
+            public void updateItem(Courses course, boolean empty) {
                 super.updateItem(course, empty);
                 if (empty || course == null) {
                     setText(null);
@@ -140,8 +145,10 @@ public class CourseViewListManager {
         });
     }
 
-    private void saveCourseListToFile(ListView<Course> courseList) {
+    private void saveCourseListToFile(ListView<Courses> courseList) {
 
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {}
 }
