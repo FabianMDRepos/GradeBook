@@ -2,6 +2,9 @@ package com.gradebook.gradebook;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.stream.Collectors;
 
 public class Courses {
@@ -87,5 +90,20 @@ public class Courses {
 
     //////////////////////////// End getting Methods
 
+    public String serialize() {
+        // TODO Look into putting functionality into a separate class designed for saving.
+        JSONObject json = new JSONObject();
+        json.put("courseTitle", courseTitle);
+        json.put("semester", semester);
+        json.put("year", year);
+
+        JSONArray assignmentsArray = new JSONArray();
+        for (Assignment assignment : assignmentsList) {
+            assignmentsArray.put(new JSONObject(assignment.serialize()));
+        }
+        json.put("assignments", assignmentsArray);
+
+        return json.toString();
+    }
 
 }

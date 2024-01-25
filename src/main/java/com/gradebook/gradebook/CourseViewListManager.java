@@ -8,7 +8,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.controlsfx.control.spreadsheet.SpreadsheetCellEditor;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -77,12 +82,15 @@ public class CourseViewListManager implements Initializable {
         currentStage.setScene(assignmentScene);
         currentStage.setTitle("Assignments for " + selectedCourse.getCourseTitle());
 
-        // Handle the window close request
+        // TODO consider moving this to its own method in a different class
         currentStage.setOnCloseRequest(event -> {
             if (currentStage.getScene().equals(courseViewScene)) {
+                String serializedData = serializeCourseList(courseList);
+                System.out.println(serializedData);
                 return;
             }
             // Set the original scene back when the window is closed
+            // TODO: Setting here within CourseViewListManager removes original setting in CourseView leading to redundant serialization
             event.consume();
             currentStage.setScene(courseViewScene);
         });
@@ -145,10 +153,24 @@ public class CourseViewListManager implements Initializable {
         });
     }
 
-    private void saveCourseListToFile(ListView<Courses> courseList) {
-
+    private void saveCourseListToFile(ListView<Courses> courseList, String filePath) throws Exception {
+        String serializedData = serializeCourseList(courseList);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            writer.write(serializedData);
+        }
     }
-
+    public String serializeCourseList(ListView<Courses> courseList) {
+        // TODO Look into putting functionality into a separate class designed for saving.
+        JSONArray courseListArray = new JSONArray();
+        for (Courses courses : courseList.getItems()) {
+            courseListArray.put(new JSONObject(courses.serialize()));
+        }
+        return courseListArray.toString();
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {}
+
+    public void populateDisplayWithTest(ListView<Courses> courseList) {
+        updateCourseListDisplay(courseList);
+    }
 }

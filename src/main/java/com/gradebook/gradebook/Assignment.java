@@ -3,7 +3,8 @@ package com.gradebook.gradebook;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
-
+import org.json.JSONArray;
+import org.json.JSONObject;
 import java.util.Objects;
 
 public class Assignment{
@@ -81,6 +82,7 @@ public class Assignment{
     }
     ///////////////////////////////////////////////////////////////
 
+    //////////////////////// Utility Methods
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -96,4 +98,16 @@ public class Assignment{
         return Objects.hash(assignmentType.get(), assignmentTitle.get(), assignmentNumber.get());
     }
 
+    public String serialize() {
+        // TODO Look into putting functionality into a separate class designed for saving.
+        JSONObject json = new JSONObject();
+        json.put("assignmentTitle", assignmentTitle.get());
+        json.put("assignmentType", assignmentType.get());
+        json.put("assignmentNumber", assignmentNumber.get());
+        json.put("possiblePoints", possiblePoints.get());
+        json.put("receivedPoints", receivedPoints.get());
+        json.put("weight", weight.get());
+        return json.toString();
+    }
+    //////////////////////////// End Utility Methods
 }

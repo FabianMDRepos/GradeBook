@@ -5,14 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22d764d0-d92e-47a4-abce-a368cca21987" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/CourseViewCoursePopulate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/Assignment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/AssignmentViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/AssignmentViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/CourseView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/CourseView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/CourseViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/CourseViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/CourseViewListManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/CourseViewListManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/gradebook/gradebook/assignmentView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/gradebook/gradebook/assignmentView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/Courses.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/Courses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/GradeBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gradebook/gradebook/GradeBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

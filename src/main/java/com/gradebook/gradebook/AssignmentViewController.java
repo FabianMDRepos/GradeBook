@@ -88,7 +88,7 @@ public class AssignmentViewController extends CourseViewController{
             e.printStackTrace();
         }
     }
-    // TODO Needs to remove assignment from the course assignmentList
+
     @FXML protected void deleteAssignment(){
         if (!tableView.getSelectionModel().isEmpty()) {
             Assignment assignmentToDelete = tableView.getSelectionModel().getSelectedItem();
@@ -170,6 +170,12 @@ public class AssignmentViewController extends CourseViewController{
             currentCourse.addAssignment(assignment);
             addAssignmentToTable();
             refreshCourseGrade();
+        }else {
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setHeaderText("Invalid duplicate");
+            errorAlert.setContentText(title + " already exists.");
+            errorAlert.showAndWait();
+
         }
     }
 
