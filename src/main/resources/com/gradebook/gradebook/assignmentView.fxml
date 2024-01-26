@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -9,46 +10,47 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="737.0"
-      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.gradebook.gradebook.AssignmentViewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="737.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gradebook.gradebook.AssignmentViewController">
    <AnchorPane prefHeight="645.0" prefWidth="737.0">
-      <Button fx:id="add" layoutX="661.0" layoutY="58.0" mnemonicParsing="false" onAction="#addAssignment"
-              prefHeight="36.0" prefWidth="62.0" text="Add" textFill="#1bd13f">
+      <Button fx:id="add" layoutX="661.0" layoutY="58.0" mnemonicParsing="false" onAction="#addAssignment" prefHeight="36.0" prefWidth="62.0" text="Add" textFill="#1bd13f">
          <font>
-            <Font name="System Bold" size="12.0"/>
+            <Font name="System Bold" size="12.0" />
          </font>
       </Button>
       <TableView fx:id="tableView" layoutX="31.0" layoutY="58.0" prefHeight="553.0" prefWidth="587.0">
          <columns>
-            <TableColumn fx:id="Type" prefWidth="142.0" text="Type"/>
-            <TableColumn fx:id="Number" prefWidth="71.0" text="Number"/>
-            <TableColumn fx:id="Received" prefWidth="74.0" text="Received"/>
-            <TableColumn fx:id="Possible" prefWidth="69.0" text="Possible"/>
-            <TableColumn fx:id="Weight" prefWidth="75.0" text="Weight"/>
+            <TableColumn fx:id="type" editable="false" maxWidth="120.0" minWidth="90.0" prefWidth="110.0" reorderable="false" text="Type" />
+            <TableColumn fx:id="number" editable="false" maxWidth="80.0" minWidth="60.0" reorderable="false" text="Number" />
+            <TableColumn fx:id="received" editable="false" maxWidth="120.0" minWidth="60.0" reorderable="false" text="Received" />
+            <TableColumn fx:id="possible" editable="false" maxWidth="120.0" minWidth="62.0" reorderable="false" text="Possible" />
+            <TableColumn fx:id="weight" editable="false" maxWidth="120.0" minWidth="60.0" reorderable="false" text="Weight" />
          </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
-      <Button fx:id="edit" layoutX="661.0" layoutY="113.0" mnemonicParsing="false" onAction="#editAssignment"
-              prefHeight="36.0" prefWidth="62.0" text="Edit">
+      <Button fx:id="edit" layoutX="661.0" layoutY="113.0" mnemonicParsing="false" onAction="#editAssignment" prefHeight="36.0" prefWidth="62.0" text="Edit">
          <font>
-            <Font name="System Bold" size="12.0"/>
+            <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="delete" layoutX="661.0" layoutY="163.0" mnemonicParsing="false" onAction="#deleteAssignment"
-              prefHeight="36.0" prefWidth="62.0" text="Delete" textFill="#ab2222">
+      <Button fx:id="delete" layoutX="661.0" layoutY="163.0" mnemonicParsing="false" onAction="#deleteAssignment" prefHeight="36.0" prefWidth="62.0" text="Delete" textFill="#ab2222">
          <font>
-            <Font name="System Bold" size="12.0"/>
+            <Font name="System Bold" size="12.0" />
          </font>
       </Button>
       <Label layoutX="31.0" layoutY="22.0" prefHeight="27.0" prefWidth="173.0" text="Assignment View">
          <font>
-            <Font name="System Bold" size="18.0"/>
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="Grade" editable="false" layoutX="619.0" layoutY="14.0" prefHeight="26.0" prefWidth="104.0"/>
+      <TextField fx:id="grade" editable="false" focusTraversable="false" layoutX="619.0" layoutY="14.0" prefHeight="26.0" prefWidth="104.0">
+         <cursor>
+            <Cursor fx:constant="NONE" />
+         </cursor></TextField>
       <Label layoutX="522.0" layoutY="18.0" prefHeight="19.0" prefWidth="96.0" text="Course Grade:">
          <font>
-            <Font name="System Bold" size="13.0"/>
+            <Font name="System Bold" size="13.0" />
          </font>
       </Label>
    </AnchorPane>

@@ -47,14 +47,4 @@ public class CourseViewCoursePopulate extends CourseViewListManager {
         return coursesList;
     }
 
-//    public static void main(String[] args) {
-//        List<Courses> generatedCourses = generateCourses();
-//        // Output the generated courses and assignments for demonstration
-//        for (Courses course : generatedCourses) {
-//            System.out.println("Course: " + course.getCourseTitle() + ", " + course.getSemester() + " " + course.getYear());
-//            for (Assignment assignment : course.getAssignmentsList()) {
-//                System.out.println("  Assignment: " + assignment.getAssignmentType() + " #" + assignment.getAssignmentNumber() + " - " + assignment.getReceivedPoints() + "/" + assignment.getPossiblePoints() + " (Weight: " + assignment.getWeight() + ")");
-//            }
-//        }
-//    }
 }

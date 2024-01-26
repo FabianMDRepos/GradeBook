@@ -1,5 +1,7 @@
 package com.gradebook.gradebook;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListCell;
@@ -12,8 +14,7 @@ import org.controlsfx.control.spreadsheet.SpreadsheetCellEditor;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
+import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -85,8 +86,12 @@ public class CourseViewListManager implements Initializable {
         // TODO consider moving this to its own method in a different class
         currentStage.setOnCloseRequest(event -> {
             if (currentStage.getScene().equals(courseViewScene)) {
-                String serializedData = serializeCourseList(courseList);
-                System.out.println(serializedData);
+                String filePath = CourseViewController.logsDirPath + CourseViewController.fileName;
+                try {
+                    writeCourseListToFile(courseList,filePath);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
                 return;
             }
             // Set the original scene back when the window is closed
@@ -153,20 +158,76 @@ public class CourseViewListManager implements Initializable {
         });
     }
 
-    private void saveCourseListToFile(ListView<Courses> courseList, String filePath) throws Exception {
+    protected void writeCourseListToFile(ListView<Courses> courseList, String filePath) throws IOException {
         String serializedData = serializeCourseList(courseList);
+        System.out.println("Saving file to " + filePath);
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+
             writer.write(serializedData);
+            System.out.println("Files saved");
+            return;
         }
     }
-    public String serializeCourseList(ListView<Courses> courseList) {
+    protected String readCourseListFromFile(String filePath) throws Exception {
+        StringBuilder contentBuilder = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String currentLine;
+            while ((currentLine = reader.readLine()) != null) {
+                contentBuilder.append(currentLine).append("\n");
+            }
+        }return contentBuilder.toString();
+    }
+    protected String serializeCourseList(ListView<Courses> courseList) {
         // TODO Look into putting functionality into a separate class designed for saving.
         JSONArray courseListArray = new JSONArray();
         for (Courses courses : courseList.getItems()) {
             courseListArray.put(new JSONObject(courses.serialize()));
         }
-        return courseListArray.toString();
+        return courseListArray.toString(4);
     }
+
+    protected static ObservableList<Courses> deserializeCourseList(String jsonString) {
+        JSONArray courseListArray = new JSONArray(jsonString);
+        ObservableList<Courses> coursesObservableList = FXCollections.observableArrayList();
+
+        for (int i = 0; i < courseListArray.length(); i++) {
+            JSONObject courseJson = courseListArray.getJSONObject(i);
+            Courses course = Courses.deserialize(courseJson.toString());
+            coursesObservableList.add(course);
+        }return coursesObservableList;
+    }
+//    protected static ListView<Courses> deserializeCourseList(String jsonString) {
+//        JSONArray courseListArray = new JSONArray(jsonString);
+//        ListView<Courses> courseListView = new ListView<>();
+//
+//        for (int i = 0; i < courseListArray.length(); i++) {
+//            JSONObject courseJson = courseListArray.getJSONObject(i);
+//            Courses course = Courses.deserialize(courseJson.toString());
+//            courseListView.getItems().add(course);
+//        }
+//        return courseListView;
+//    }
+
+    public static ListView<Courses> mergeListViews(ListView<Courses> listView1, ListView<Courses> listView2) {
+        ObservableList<Courses> combinedList = FXCollections.observableArrayList(listView1.getItems());
+
+        for (Courses courseFromList2 : listView2.getItems()) {
+            if (!containsCourse(combinedList, courseFromList2)) {
+                combinedList.add(courseFromList2);
+            }
+        }
+        listView1.setItems(combinedList);
+        return listView1;
+    }
+    private static boolean containsCourse(ObservableList<Courses> list, Courses courseToCheck) {
+        for (Courses course : list) {
+            if (course.equals(courseToCheck)) { // Define equals method in Courses class
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {}
 

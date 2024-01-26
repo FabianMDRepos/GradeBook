@@ -6,7 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import java.io.File;
 
 public class CourseViewController extends  CourseViewListManager{
@@ -14,7 +15,8 @@ public class CourseViewController extends  CourseViewListManager{
         @FXML private Button editButton;
         @FXML private Button deleteButton;
         @FXML private ListView<Courses> courseList;
-        private String saveFilePath;
+        public static final String logsDirPath = "logs";
+        public static final String fileName = "coursesData.json";
 
         private CourseViewListManager courseViewListManager = CourseViewListManager.getInstance();
 
@@ -49,29 +51,37 @@ public class CourseViewController extends  CourseViewListManager{
         protected String handleSerializeCourseList() {
             return courseViewListManager.serializeCourseList(courseList);
         }
-        public void initialize() {
+        public void initialize() throws Exception {
+            ObservableList<Courses> combinedList = FXCollections.observableArrayList();
+            File logsDir = new File(logsDirPath);
+            if (!logsDir.exists()) {
+                logsDir.mkdir();
+            }
+            handleLoadCourseListFromFile();
+            combinedList.addAll(courseList.getItems());
+
             ListView<Courses> generatedCourseListView = CourseViewCoursePopulate.generateCourseListView();
-            courseList.setItems(generatedCourseListView.getItems());
+            combinedList.addAll(generatedCourseListView.getItems());
+
+            courseList = mergeListViews(courseList, generatedCourseListView);
+            //courseList.setItems(generatedCourseListView.getItems());
+
             populateDisplayWithTest(courseList);
         }
-//        public void handleSaveCourseListToFile() throws Exception{
-//            // TODO Look into putting functionality into a separate class designed for saving.
-//            Scene courseViewScene = courseList.getScene();
-//            Stage courseViewSage = (Stage) courseViewScene.getWindow();
-//            courseViewSage.setOnCloseRequest(event -> {
-//                        if (courseViewSage.getScene().equals(courseViewScene)) {
-//                            String serializedData = courseViewListManager.serializeCourseList(courseList);
-//                            System.out.println(serializedData);
-//                        }
-//                    });
-////            String userHome = System.getProperty("user.home");
-////            String directoryPath = userHome + File.separator + "YourApplicationName";
-////            String filePath = directoryPath + File.separator + "grades.json";
-////
-////            // Create directory if it doesn't exist
-////            File directory = new File(directoryPath);
-////            if (!directory.exists()) {
-////                directory.mkdirs();
-////            }
-//        }
+        public void handleSaveCourseListToFile() throws Exception {
+            // TODO Look into putting functionality into a separate class designed for saving.
+            String filePath = logsDirPath + File.separator + fileName;
+            writeCourseListToFile(courseList, filePath);
+        }
+
+        public void handleLoadCourseListFromFile() throws Exception {
+            String filePath = logsDirPath + File.separator + fileName;
+            File file = new File(filePath);
+
+            if (file.exists()) {
+                String jsonData = readCourseListFromFile(filePath);
+                this.courseList.setItems(deserializeCourseList(jsonData));
+            }
+        }
+
 }

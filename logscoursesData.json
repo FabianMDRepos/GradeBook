@@ -1,0 +1,245 @@
+[
+    {
+        "courseTitle": "Course 1",
+        "assignments": [
+            {
+                "receivedPoints": 59.38819418450575,
+                "assignmentTitle": "Assignment 1",
+                "weight": 0.837317633644957,
+                "assignmentNumber": 1,
+                "possiblePoints": 88.4440068996219,
+                "assignmentType": "Quiz"
+            },
+            {
+                "receivedPoints": 12.113541037124248,
+                "assignmentTitle": "Assignment 2",
+                "weight": 0.22037191180990567,
+                "assignmentNumber": 2,
+                "possiblePoints": 51.19659423048786,
+                "assignmentType": "Essay"
+            },
+            {
+                "receivedPoints": 0.3719180635723951,
+                "assignmentTitle": "Assignment 3",
+                "weight": 0.5392884447305889,
+                "assignmentNumber": 3,
+                "possiblePoints": 92.35419892695053,
+                "assignmentType": "Essay"
+            },
+            {
+                "receivedPoints": 21.758236611516466,
+                "assignmentTitle": "Assignment 4",
+                "weight": 0.2415913519283604,
+                "assignmentNumber": 4,
+                "possiblePoints": 65.1118131732077,
+                "assignmentType": "Homework"
+            },
+            {
+                "receivedPoints": 16.012732333471686,
+                "assignmentTitle": "Assignment 5",
+                "weight": 0.4187957770593296,
+                "assignmentNumber": 5,
+                "possiblePoints": 86.56566986893156,
+                "assignmentType": "Exam"
+            },
+            {
+                "receivedPoints": 17.012732333471686,
+                "assignmentTitle": "Assignment 6",
+                "weight": 0.4187957770593296,
+                "assignmentNumber": 6,
+                "possiblePoints": 86.56566986893156,
+                "assignmentType": "Quiz"
+            }
+        ],
+        "year": 2022,
+        "semester": "Fall"
+    },
+    {
+        "courseTitle": "Course 2",
+        "assignments": [
+            {
+                "receivedPoints": 25.341906854302074,
+                "assignmentTitle": "Assignment 1",
+                "weight": 0.601465597448294,
+                "assignmentNumber": 1,
+                "possiblePoints": 52.24265334691332,
+                "assignmentType": "Essay"
+            },
+            {
+                "receivedPoints": 24.687021021415273,
+                "assignmentTitle": "Assignment 2",
+                "weight": 0.41642795349605,
+                "assignmentNumber": 2,
+                "possiblePoints": 61.846589668047436,
+                "assignmentType": "Project"
+            },
+            {
+                "receivedPoints": 18.168571910688154,
+                "assignmentTitle": "Assignment 3",
+                "weight": 0.3473383605799024,
+                "assignmentNumber": 3,
+                "possiblePoints": 99.01424035248779,
+                "assignmentType": "Essay"
+            },
+            {
+                "receivedPoints": 4.665811946718724,
+                "assignmentTitle": "Assignment 4",
+                "weight": 0.8553625040983451,
+                "assignmentNumber": 4,
+                "possiblePoints": 92.80816281641782,
+                "assignmentType": "Project"
+            },
+            {
+                "receivedPoints": 73.87157553832535,
+                "assignmentTitle": "Assignment 5",
+                "weight": 0.8812575572916655,
+                "assignmentNumber": 5,
+                "possiblePoints": 78.98288770691337,
+                "assignmentType": "Exam"
+            }
+        ],
+        "year": 2023,
+        "semester": "Fall"
+    },
+    {
+        "courseTitle": "Course 3",
+        "assignments": [
+            {
+                "receivedPoints": 37.29005888623758,
+                "assignmentTitle": "Assignment 1",
+                "weight": 0.7929293074867847,
+                "assignmentNumber": 1,
+                "possiblePoints": 50.630571794156566,
+                "assignmentType": "Quiz"
+            },
+            {
+                "receivedPoints": 68.88986890563358,
+                "assignmentTitle": "Assignment 2",
+                "weight": 0.635936449802893,
+                "assignmentNumber": 2,
+                "possiblePoints": 93.59039310471672,
+                "assignmentType": "Project"
+            },
+            {
+                "receivedPoints": 21.88580717436456,
+                "assignmentTitle": "Assignment 3",
+                "weight": 0.34362278492076925,
+                "assignmentNumber": 3,
+                "possiblePoints": 65.2096619675168,
+                "assignmentType": "Homework"
+            },
+            {
+                "receivedPoints": 40.68675591554569,
+                "assignmentTitle": "Assignment 4",
+                "weight": 0.23764782579337018,
+                "assignmentNumber": 4,
+                "possiblePoints": 76.54756362207738,
+                "assignmentType": "Quiz"
+            },
+            {
+                "receivedPoints": 31.55394977779007,
+                "assignmentTitle": "Assignment 5",
+                "weight": 0.12615144088537467,
+                "assignmentNumber": 5,
+                "possiblePoints": 58.009189865796955,
+                "assignmentType": "Project"
+            }
+        ],
+        "year": 2024,
+        "semester": "Fall"
+    },
+    {
+        "courseTitle": "Course 4",
+        "assignments": [
+            {
+                "receivedPoints": 4.762142695485307,
+                "assignmentTitle": "Assignment 1",
+                "weight": 0.181022526217115,
+                "assignmentNumber": 1,
+                "possiblePoints": 64.00640471496408,
+                "assignmentType": "Quiz"
+            },
+            {
+                "receivedPoints": 2.7596467472447124,
+                "assignmentTitle": "Assignment 2",
+                "weight": 0.7540716271399555,
+                "assignmentNumber": 2,
+                "possiblePoints": 61.50220360463733,
+                "assignmentType": "Project"
+            },
+            {
+                "receivedPoints": 60.54939606255545,
+                "assignmentTitle": "Assignment 3",
+                "weight": 0.8753603576947565,
+                "assignmentNumber": 3,
+                "possiblePoints": 62.732552084934106,
+                "assignmentType": "Homework"
+            },
+            {
+                "receivedPoints": 35.69738641321346,
+                "assignmentTitle": "Assignment 4",
+                "weight": 0.14763314296374355,
+                "assignmentNumber": 4,
+                "possiblePoints": 63.60123294841271,
+                "assignmentType": "Exam"
+            },
+            {
+                "receivedPoints": 48.759789928668475,
+                "assignmentTitle": "Assignment 5",
+                "weight": 0.5401676943149742,
+                "assignmentNumber": 5,
+                "possiblePoints": 94.66226209609619,
+                "assignmentType": "Exam"
+            }
+        ],
+        "year": 2025,
+        "semester": "Fall"
+    },
+    {
+        "courseTitle": "Course 6",
+        "assignments": [
+            {
+                "receivedPoints": 51.39105179173226,
+                "assignmentTitle": "Assignment 1",
+                "weight": 0.7079902256921969,
+                "assignmentNumber": 1,
+                "possiblePoints": 54.7544628674805,
+                "assignmentType": "Essay"
+            },
+            {
+                "receivedPoints": 37.82020681886323,
+                "assignmentTitle": "Assignment 2",
+                "weight": 0.4930095258831759,
+                "assignmentNumber": 2,
+                "possiblePoints": 96.44898350138642,
+                "assignmentType": "Project"
+            },
+            {
+                "receivedPoints": 32.29161007882844,
+                "assignmentTitle": "Assignment 3",
+                "weight": 0.11518270038999195,
+                "assignmentNumber": 3,
+                "possiblePoints": 96.2025709282457,
+                "assignmentType": "Project"
+            },
+            {
+                "receivedPoints": 83.75013189166583,
+                "assignmentTitle": "Assignment 4",
+                "weight": 0.6680110614870576,
+                "assignmentNumber": 4,
+                "possiblePoints": 88.61419612967109,
+                "assignmentType": "Essay"
+            },
+            {
+                "receivedPoints": 51.58340235497083,
+                "assignmentTitle": "Assignment 5",
+                "weight": 0.509911086834171,
+                "assignmentNumber": 5,
+                "possiblePoints": 59.70415809270563,
+                "assignmentType": "Homework"
+            }
+        ],
+        "year": 2023,
+        "semester": "Fall"
+    }
+]

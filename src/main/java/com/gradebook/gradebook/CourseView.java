@@ -5,6 +5,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class CourseView {
     public CourseView(Stage courseViewStage) throws Exception{
         FXMLLoader courseViewLoader = new FXMLLoader(getClass().getResource("CourseViewTest.fxml"));
@@ -19,11 +21,12 @@ public class CourseView {
         courseViewStage.show();
 
         courseViewStage.setOnCloseRequest(event -> {
-            //if (courseViewStage.getScene().equals(courseViewScene)) {
-                String serializedData = courseViewController.handleSerializeCourseList();
-                System.out.println(serializedData);
-
-            //}
+// TODO: Setting within CourseViewListManager removes original setting here in CourseView leading to redundant serialization
+            try {
+                courseViewController.handleSaveCourseListToFile();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         });
     }
 }

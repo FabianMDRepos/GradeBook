@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Courses {
@@ -90,6 +91,21 @@ public class Courses {
 
     //////////////////////////// End getting Methods
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Courses courses = (Courses) obj;
+        return year == courses.year &&
+                Objects.equals(courseTitle, courses.courseTitle) &&
+                Objects.equals(semester, courses.semester);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(courseTitle, semester, year);
+    }
+
     public String serialize() {
         // TODO Look into putting functionality into a separate class designed for saving.
         JSONObject json = new JSONObject();
@@ -104,6 +120,25 @@ public class Courses {
         json.put("assignments", assignmentsArray);
 
         return json.toString();
+    }
+
+    public static Courses deserialize(String jsonString) {
+        JSONObject json = new JSONObject(jsonString);
+
+        String courseTitle = json.getString("courseTitle");
+        String semester = json.getString("semester");
+        int year = json.getInt("year");
+
+        Courses course = new Courses(courseTitle, semester, year);
+
+        JSONArray assignmentsArray = json.getJSONArray("assignments");
+        for (int i = 0; i < assignmentsArray.length(); i++) {
+            JSONObject assignmentJson = assignmentsArray.getJSONObject(i);
+            Assignment assignment = Assignment.deserialize(assignmentJson.toString());
+            course.addAssignment(assignment);
+        }
+
+        return course;
     }
 
 }

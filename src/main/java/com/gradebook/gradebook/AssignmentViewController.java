@@ -1,6 +1,5 @@
 package com.gradebook.gradebook;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,12 +15,12 @@ import java.io.IOException;
 public class AssignmentViewController extends CourseViewController{
 
     @FXML private TableView<Assignment> tableView;
-    @FXML private TableColumn<Assignment,String> Type;
-    @FXML private TableColumn<Assignment,Integer> Number;
-    @FXML private TableColumn<Assignment,Double> Received;
-    @FXML private TableColumn<Assignment,Double> Possible;
-    @FXML private TableColumn<Assignment,Double> Weight;
-    @FXML private TextField Grade;
+    @FXML private TableColumn<Assignment,String> type;
+    @FXML private TableColumn<Assignment,Integer> number;
+    @FXML private TableColumn<Assignment,Double> received;
+    @FXML private TableColumn<Assignment,Double> possible;
+    @FXML private TableColumn<Assignment,Double> weight;
+    @FXML private TextField grade;
 
     @FXML private Button add;
     @FXML private Button edit;
@@ -41,11 +40,11 @@ public class AssignmentViewController extends CourseViewController{
     }
     public void addAssignmentToTable(){//(Assignment assignment){
 
-        Type.setCellValueFactory(new PropertyValueFactory<Assignment, String>("assignmentType"));
-        Number.setCellValueFactory(new PropertyValueFactory<Assignment, Integer>("assignmentNumber"));
-        Received.setCellValueFactory(new PropertyValueFactory<Assignment, Double>("receivedPoints"));
-        Possible.setCellValueFactory(new PropertyValueFactory<Assignment, Double>("possiblePoints"));
-        Weight.setCellValueFactory(new PropertyValueFactory<Assignment, Double>("weight"));
+        type.setCellValueFactory(new PropertyValueFactory<Assignment, String>("assignmentType"));
+        number.setCellValueFactory(new PropertyValueFactory<Assignment, Integer>("assignmentNumber"));
+        received.setCellValueFactory(new PropertyValueFactory<Assignment, Double>("receivedPoints"));
+        possible.setCellValueFactory(new PropertyValueFactory<Assignment, Double>("possiblePoints"));
+        weight.setCellValueFactory(new PropertyValueFactory<Assignment, Double>("weight"));
 
         //tableView.setItems(assignmentObservableList);
         tableView.setItems((currentCourse.getAssignmentsList()));
@@ -186,7 +185,7 @@ public class AssignmentViewController extends CourseViewController{
         double grade = currentCourse.getCourseGrade();
         grade = Math.round(grade * 100.0) / 100.0;
         String stringGrade = String.valueOf(grade);
-        Grade.setText(stringGrade + "%");
+        this.grade.setText(stringGrade + "%");
 
     }
     public void setCurrentCourse(Courses course) {
@@ -197,10 +196,6 @@ public class AssignmentViewController extends CourseViewController{
         tableView.setItems(currentCourse.getAssignmentsList());
     }
     public void initialize(){
-        Grade.setEditable(false);
-        Grade.setMouseTransparent(true);
-        Grade.setFocusTraversable(false);
         refreshCourseGrade();
-
     }
 }

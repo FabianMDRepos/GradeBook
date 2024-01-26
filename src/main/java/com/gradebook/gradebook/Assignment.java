@@ -109,5 +109,19 @@ public class Assignment{
         json.put("weight", weight.get());
         return json.toString();
     }
+
+    public static Assignment deserialize(String jsonString) {
+        JSONObject json = new JSONObject(jsonString);
+
+        String assignmentTitle = json.getString("assignmentTitle");
+        String assignmentType = json.getString("assignmentType");
+        int assignmentNumber = json.getInt("assignmentNumber");
+        double possiblePoints = json.getDouble("possiblePoints");
+        double receivedPoints = json.getDouble("receivedPoints");
+        double weight = json.getDouble("weight");
+
+        return new Assignment(assignmentTitle, assignmentType, assignmentNumber,
+                possiblePoints, receivedPoints, weight);
+    }
     //////////////////////////// End Utility Methods
 }
